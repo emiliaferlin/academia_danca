@@ -1,0 +1,5 @@
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Modalidade_.class
+br\edu\ifsul\cc\lpoo\academia_danca\Academia_danca.class
+br\edu\ifsul\cc\lpoo\academia_danca\dao\InterfacePersistencia.class
+br\edu\ifsul\cc\lpoo\academia_danca\dao\PersistenciaJPA.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Modalidade.class
