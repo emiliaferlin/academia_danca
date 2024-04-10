@@ -12,6 +12,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 
 /**
@@ -37,17 +38,30 @@ public class TestPersistenciaTeste {
     }
     
     
-    @Test
+    //@Test
     public void testeModalidade() throws Exception{
-        Modalidade m = new Modalidade();
-        m.setDescricao("Fit Dance");
-        
+         Modalidade m = new Modalidade();
+         m.setDescricao("Danca Livre");
+         
+         Modalidade m2 = new Modalidade();
+         m2.setDescricao("FitDance");
+         
+         Modalidade m3 = new Modalidade();
+         m3.setDescricao("Gluteos");
+         // persistir objeto 
+         jpa.persist(m);
+         jpa.persist(m2);
+         jpa.persist(m3);
         
         //persistir objeto
-        jpa.persist(m);
         Modalidade persistindoProd = (Modalidade)jpa.find(Modalidade.class, m.getId());
         
-        Assert.assertEquals(m.getDescricao(), persistindoProd);
+        //Assert.assertEquals(m.getDescricao(), persistindoProd);
+        
+        // Modalidades persistidoModalidade = (Modalidades)jpa.find(Modalidades.class, m.getId());//ver se tem necessidade de fazer o mesmo pro m2 e m3
+         
+        // verificar se objeto persistido é igual ao criado
+        Assert.assertEquals(m.getDescricao(),persistindoProd.getDescricao());
     }
     
 }

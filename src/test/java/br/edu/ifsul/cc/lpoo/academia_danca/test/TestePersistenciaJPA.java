@@ -1,13 +1,10 @@
 package br.edu.ifsul.cc.lpoo.academia_danca.test;
 import br.edu.ifsul.cc.lpoo.academia_danca.dao.PersistenciaJPA;
-import br.edu.ifsul.cc.lpoo.academia_danca.modelo.Modalidade;
-import org.junit.Test;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 
 
 /**

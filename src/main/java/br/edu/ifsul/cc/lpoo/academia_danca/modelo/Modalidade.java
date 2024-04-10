@@ -28,6 +28,10 @@ public class Modalidade implements Serializable{
     @Column(name = "descricao")
     private String descricao;
 
+    public Modalidade() {
+    }
+    
+
     public int getId() {
         return id;
     }
