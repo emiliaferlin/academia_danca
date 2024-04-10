@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,6 +31,10 @@ public class Contrataos implements Serializable{
     
     @Column(name = "valor_desconto")
     private double valorDesc;
+    
+    @Column(name = "forma_pagamento")
+    @Enumerated(EnumType.STRING)
+    private FormaPagamento formaPag;
 
     public Contrataos() {
     }
