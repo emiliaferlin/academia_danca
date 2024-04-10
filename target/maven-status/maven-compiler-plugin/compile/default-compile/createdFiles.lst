@@ -1,5 +1,14 @@
 br\edu\ifsul\cc\lpoo\academia_danca\modelo\Modalidade_.class
-br\edu\ifsul\cc\lpoo\academia_danca\Academia_danca.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Alunos_.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Professores.class
 br\edu\ifsul\cc\lpoo\academia_danca\dao\InterfacePersistencia.class
-br\edu\ifsul\cc\lpoo\academia_danca\dao\PersistenciaJPA.class
 br\edu\ifsul\cc\lpoo\academia_danca\modelo\Modalidade.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Pagamento.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Pessoas_.class
+br\edu\ifsul\cc\lpoo\academia_danca\Academia_danca.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\FormaPagamento.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Pagamento_.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Professores_.class
+br\edu\ifsul\cc\lpoo\academia_danca\dao\PersistenciaJPA.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Pessoas.class
+br\edu\ifsul\cc\lpoo\academia_danca\modelo\Alunos.class
