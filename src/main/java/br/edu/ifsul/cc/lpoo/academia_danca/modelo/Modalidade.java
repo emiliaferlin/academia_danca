@@ -25,7 +25,7 @@ public class Modalidade implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     
-    @Column(name = "descricao")
+    @Column(name = "descricao", nullable = false, length = 155) // false é obrigatorio
     private String descricao;
 
     public Modalidade() {
