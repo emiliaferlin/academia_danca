@@ -71,8 +71,8 @@ public class TestPersistenciaTeste {
          c.set(Calendar.DAY_OF_MONTH, 10);
          p.setDataPag(c);
          p.setDataVenc(c);
-         p.setValor(140.00);
-         p.setValorPagamento(140.00);
+         p.setValor(140.0000);
+         p.setValorPagamento(140.0000);
          
          // persistir objeto 
          jpa.persist(p);

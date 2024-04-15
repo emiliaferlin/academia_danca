@@ -43,7 +43,7 @@ public class Contratao implements Serializable{
     private FormaPagamento formaPag;
     
     @ManyToOne
-    @JoinColumn(name = "agamento", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "Pagamento", referencedColumnName = "id", nullable = false)
     private Pagamento pagamento;
     
     @PrePersist

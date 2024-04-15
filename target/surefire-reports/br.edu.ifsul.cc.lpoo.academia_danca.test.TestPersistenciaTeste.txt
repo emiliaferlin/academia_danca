@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.944 s <<< FAILURE! - in br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste
-br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste.testePagamento  Time elapsed: 0.005 s  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.15 s <<< FAILURE! - in br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste
+br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste.testePagamento  Time elapsed: 0.006 s  <<< ERROR!
 org.hibernate.AnnotationException: @OneToOne or @ManyToOne on br.edu.ifsul.cc.lpoo.academia_danca.model.Modalidade.pacote references an unknown entity: br.edu.ifsul.cc.lpoo.academia_danca.model.Pacote
 	at org.hibernate.cfg.ToOneFkSecondPass.doSecondPass(ToOneFkSecondPass.java:97)
 	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processEndOfQueue(InFlightMetadataCollectorImpl.java:1827)

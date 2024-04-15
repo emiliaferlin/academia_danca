@@ -31,7 +31,7 @@ public class Modalidade implements Serializable{
     private String descricao;
     
     @ManyToOne
-    @JoinColumn(name = "pacote_id")
+    @JoinColumn(name = "Pacote", referencedColumnName = "id")
     private Pacote pacote;
 
     public Modalidade() {
