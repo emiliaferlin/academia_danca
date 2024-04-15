@@ -5,8 +5,8 @@
 package br.edu.ifsul.cc.lpoo.academia_danca.test;
 
 import br.edu.ifsul.cc.lpoo.academia_danca.dao.PersistenciaJPA;
-import br.edu.ifsul.cc.lpoo.academia_danca.modelo.Modalidade;
-import br.edu.ifsul.cc.lpoo.academia_danca.modelo.Pagamento;
+import br.edu.ifsul.cc.lpoo.academia_danca.model.Modalidade;
+import br.edu.ifsul.cc.lpoo.academia_danca.model.Pagamento;
 import java.util.Calendar;
 
 
@@ -62,7 +62,7 @@ public class TestPersistenciaTeste {
         Assert.assertEquals(m.getDescricao(),persistindoProd.getDescricao());
     }
     
-    //@Test
+    @Test
     public void testePagamento() throws Exception{
          Pagamento p = new Pagamento();
          Calendar c = Calendar.getInstance();

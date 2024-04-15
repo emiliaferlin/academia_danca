@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.ifsul.cc.lpoo.academia_danca.modelo;
+package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
 import java.util.Calendar;
 import javax.persistence.Column;
@@ -24,13 +24,13 @@ public class Pagamento {
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
    private int id;
    
-   @Column(name = "data_vencimento")
+   @Column(name = "data_vencimento", nullable = false)
    private Calendar dataVenc;
    
-   @Column(name = "valor")
+   @Column(name = "valor", precision = 10, scale = 2)
    private double valor;
    
-   @Column(name = "valor_pagamento")
+   @Column(name = "valor_pagamento", precision = 10, scale = 2)
    private double valorPagamento;
    
    @Column(name = "data_pagamento")
