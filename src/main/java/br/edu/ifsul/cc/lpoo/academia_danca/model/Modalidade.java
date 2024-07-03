@@ -30,9 +30,6 @@ public class Modalidade implements Serializable{
     @Column(name = "descricao", nullable = false, length = 155) // false é obrigatorio
     private String descricao;
     
-    @ManyToOne
-    @JoinColumn(name = "Pacote", referencedColumnName = "id")
-    private Pacote pacote;
 
     public Modalidade() {
     }

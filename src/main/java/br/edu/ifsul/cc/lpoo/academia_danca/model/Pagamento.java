@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -35,6 +37,10 @@ public class Pagamento {
    
    @Column(name = "data_pagamento")
    private Calendar dataPag;
+   
+   @ManyToOne
+   @JoinColumn(name = "Contrato", referencedColumnName = "id", nullable = false)
+   private Contrato contrato;
 
     public Pagamento() {
     }
@@ -77,6 +83,12 @@ public class Pagamento {
 
     public void setDataPag(Calendar dataPag) {
         this.dataPag = dataPag;
+    }
+
+    private static class Contrato {
+
+        public Contrato() {
+        }
     }
    
    

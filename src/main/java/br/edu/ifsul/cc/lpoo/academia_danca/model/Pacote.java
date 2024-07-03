@@ -7,15 +7,19 @@ package br.edu.ifsul.cc.lpoo.academia_danca.model;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
  *
  * @author Mili
  */
+@Entity
 public class Pacote {
     
     @Id
@@ -25,9 +29,12 @@ public class Pacote {
     @Column(name = "descricao", nullable = false, length = 120)
     private String descricao;
     
-    @Column(name = "valor", nullable = false, precision = 10, scale = 2)
+    @Column(name = "valor", nullable = false, precision = 2)
     private double valor;
     
+    @ManyToOne
+    @JoinColumn(name = "Modalidade", referencedColumnName = "id")
+    private Modalidade modalidade;
     
     public Pacote() {
     }

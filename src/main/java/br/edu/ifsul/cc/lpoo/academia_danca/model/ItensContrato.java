@@ -4,6 +4,8 @@
  */
 package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
+import javax.persistence.Entity;
+
 
 
 /**
@@ -11,7 +13,7 @@ package br.edu.ifsul.cc.lpoo.academia_danca.model;
  * @author Mili
  */
 
-
+@Entity
 public class ItensContrato{
    
     private int idContrato;

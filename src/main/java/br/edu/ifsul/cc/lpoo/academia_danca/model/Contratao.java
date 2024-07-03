@@ -13,8 +13,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,7 +29,6 @@ public class Contratao implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_inicio" , nullable = false)
     private Calendar dataInicio;
     
@@ -41,17 +38,9 @@ public class Contratao implements Serializable{
     @Column(name = "forma_pagamento")
     @Enumerated(EnumType.STRING)
     private FormaPagamento formaPag;
-    
-    @ManyToOne
-    @JoinColumn(name = "Pagamento", referencedColumnName = "id", nullable = false)
-    private Pagamento pagamento;
-    
-    @PrePersist
-    protected void onCreate() {
-        dataInicio = Calendar.getInstance(); // Isso define a data atual ao persistir a entidade
-    }
-
+   
     public Contratao() {
+       dataInicio = Calendar.getInstance();
     }
     
     public int getId() {

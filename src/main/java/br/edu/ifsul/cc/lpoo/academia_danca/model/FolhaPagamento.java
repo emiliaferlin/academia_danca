@@ -5,11 +5,13 @@
 package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
 import java.util.Calendar;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Mili
  */
+@Entity
 public class FolhaPagamento {
     
     private Calendar dataPag;
