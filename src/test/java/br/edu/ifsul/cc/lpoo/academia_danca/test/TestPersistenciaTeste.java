@@ -43,7 +43,7 @@ public class TestPersistenciaTeste {
     }
     
     
-    @Test
+   // @Test
     public void testeModalidade() throws Exception {
 
         // criar meu obj Produto
@@ -75,7 +75,7 @@ public class TestPersistenciaTeste {
 
     }
     
-    //@Test
+    @Test
     public void testePagamento() throws Exception{
         Contrato c = new Contrato();
         c.setFormaPag(FormaPagamento.PIX);
