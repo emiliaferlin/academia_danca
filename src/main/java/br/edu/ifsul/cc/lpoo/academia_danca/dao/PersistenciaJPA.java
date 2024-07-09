@@ -20,11 +20,11 @@ import javax.persistence.Persistence;
  */
 public class PersistenciaJPA implements InterfacePersistencia{
     
-    public EntityManagerFactory factory;    //fabrica de gerenciadores de entidades
-    public EntityManager entity;            //gerenciador de entidades JPA
+     EntityManagerFactory factory; //fabrica de gerenciadores de entidades
+     EntityManager entity; //gerenciador de entidades JPA
     
     public PersistenciaJPA(){
-        //parametro: é o nome da unidade de persistencia (Persistence Unit)
+        //parametro: é o nome da unidade de persistencia
         factory = Persistence.createEntityManagerFactory("pu_academia_danca");
         entity = factory.createEntityManager();    // estabelece a conexão com o banco de dados e executa a estratégia de geração
     }

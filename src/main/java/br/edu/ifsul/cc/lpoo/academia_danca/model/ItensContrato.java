@@ -4,7 +4,14 @@
  */
 package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 
 
 
@@ -14,31 +21,30 @@ import javax.persistence.Entity;
  */
 
 @Entity
-public class ItensContrato{
-   
-    private int idContrato;
-    private int idPacote;
+public class ItensContrato implements Serializable{
+    
+     //tem como chave estrangeira contrato e pacote, ver como fazer 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)//id sequencial
+    private Integer idContrato;
+    
+    
+    @ManyToOne
+    @JoinColumn(name = "contratos_id")
+    private Contrato contratos;
 
     public ItensContrato() {
     }
     
 
-    public int getIdContrato() {
+    public Integer getIdContrato() {
         return idContrato;
     }
 
-    public void setIdContrato(int idContrato) {
+    public void setIdContrato(Integer idContrato) {
         this.idContrato = idContrato;
     }
 
-    public int getIdPacote() {
-        return idPacote;
-    }
-
-    public void setIdPacote(int idPacote) {
-        this.idPacote = idPacote;
-    }
-    
     
     
 }

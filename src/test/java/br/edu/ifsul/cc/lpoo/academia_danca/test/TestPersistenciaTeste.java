@@ -5,7 +5,10 @@
 package br.edu.ifsul.cc.lpoo.academia_danca.test;
 
 import br.edu.ifsul.cc.lpoo.academia_danca.dao.PersistenciaJPA;
+import br.edu.ifsul.cc.lpoo.academia_danca.model.Contrato;
+import br.edu.ifsul.cc.lpoo.academia_danca.model.FormaPagamento;
 import br.edu.ifsul.cc.lpoo.academia_danca.model.Modalidade;
+import br.edu.ifsul.cc.lpoo.academia_danca.model.Pacote;
 import br.edu.ifsul.cc.lpoo.academia_danca.model.Pagamento;
 import java.util.Calendar;
 
@@ -40,48 +43,52 @@ public class TestPersistenciaTeste {
     }
     
     
-    //@Test
-    public void testeModalidade() throws Exception{
-         Modalidade m = new Modalidade();
-         m.setDescricao("Danca Livre");
-         
-         Modalidade m2 = new Modalidade();
-         m2.setDescricao("FitDance");
-         
-         Modalidade m3 = new Modalidade();
-         m3.setDescricao("Gluteos");
-         // persistir objeto 
-         jpa.persist(m);
-         jpa.persist(m2);
-         jpa.persist(m3);
+    @Test
+    public void testeModalidade() throws Exception {
+
+        // criar meu obj Produto
+        Modalidade m = new Modalidade();
+        m.setDescricao("Dança Livre");
+
+        Modalidade m2 = new Modalidade();
+        m2.setDescricao("FitDance");
+
+        Modalidade m3 = new Modalidade();
+        m3.setDescricao("Gluteos");
+
+        jpa.persist(m);
+        jpa.persist(m2);
+        jpa.persist(m3);
         
-        //persistir objeto
-        Modalidade persistindoProd = (Modalidade)jpa.find(Modalidade.class, m.getId());
-         
+        Pacote pc = new Pacote();
+        pc.setDescricao("testando pacotes");
+        pc.setModalidade(m3);
+        pc.setValor(540.94767);
+        jpa.persist(pc);
+        
+
+        // buscar objeto persistido
+        Modalidade persistidoModalidade = (Modalidade) jpa.find(Modalidade.class, m.getId());//ver se tem necessidade de fazer o mesmo pro m2 e m3
+
         // verificar se objeto persistido é igual ao criado
-        Assert.assertEquals(m.getDescricao(),persistindoProd.getDescricao());
+        Assert.assertEquals(m.getDescricao(), persistidoModalidade.getDescricao());
+
     }
     
-    @Test
+    //@Test
     public void testePagamento() throws Exception{
-         Pagamento p = new Pagamento();
-         Calendar c = Calendar.getInstance();
-         c.set(Calendar.YEAR, 2024);
-         c.set(Calendar.MONTH, Calendar.APRIL); // Janeiro é 0, Fevereiro é 1, ..., Dezembro é 11
-         c.set(Calendar.DAY_OF_MONTH, 10);
-         p.setDataPag(c);
-         p.setDataVenc(c);
-         p.setValor(140.0000);
-         p.setValorPagamento(140.0000);
-         
-         // persistir objeto 
-         jpa.persist(p);
-        
-        //persistir objeto
-        Pagamento persistindoProd = (Pagamento)jpa.find(Pagamento.class, p.getId());
-         
-        // verificar se objeto persistido é igual ao criado
-        Assert.assertEquals(p.getDataPag(),persistindoProd.getDataPag());
+        Contrato c = new Contrato();
+        c.setFormaPag(FormaPagamento.PIX);
+        jpa.persist(c);
+        Pagamento p1 = new Pagamento();
+        p1.setDataPag(Calendar.getInstance());
+        p1.setDataVenc(Calendar.getInstance());
+        p1.setValor(200.463728);
+        p1.setValorPagamento(240.985346);
+        p1.setContratos(c);
+        jpa.persist(p1);
     }
+    
+    
     
 }

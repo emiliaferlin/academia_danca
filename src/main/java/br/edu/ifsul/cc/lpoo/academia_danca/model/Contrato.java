@@ -5,17 +5,23 @@
 package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
 import java.util.Calendar;
+import java.util.List;
+import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,11 +29,11 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-public class Contratao implements Serializable{
+public class Contrato implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    private Integer id;
     
     @Column(name = "data_inicio" , nullable = false)
     private Calendar dataInicio;
@@ -35,19 +41,38 @@ public class Contratao implements Serializable{
     @Column(name = "valor_desconto", precision = 10, scale = 2)
     private double valorDesc;
     
-    @Column(name = "forma_pagamento")
+    @Column(name = "forma_pagamento", nullable = false)
     @Enumerated(EnumType.STRING)
     private FormaPagamento formaPag;
+    
+    @OneToMany(mappedBy = "contratos", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.LAZY)
+    private List<ItensContrato> itensContrato= new ArrayList();
    
-    public Contratao() {
+   private void adicionaItens(ItensContrato obj){
+        itensContrato.add(obj);
+   }
+    private void removeItens(ItensContrato obj){
+        itensContrato.remove(obj);
+   }
+    
+    public FormaPagamento getFormaPag() {
+        return formaPag;
+    }
+
+    public void setFormaPag(FormaPagamento formaPag) {
+        this.formaPag = formaPag;
+    }
+   
+    public Contrato() {
+       //atualiza automaticamente
        dataInicio = Calendar.getInstance();
     }
     
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -18,7 +18,8 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class Pessoas implements Serializable{
+//ver como faz herença
+public abstract class Pessoas implements Serializable{
    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

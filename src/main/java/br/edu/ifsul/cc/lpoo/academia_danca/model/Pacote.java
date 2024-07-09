@@ -4,8 +4,7 @@
  */
 package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
-import java.util.List;
-import javax.persistence.CascadeType;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,37 +12,43 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
 /**
  *
  * @author Mili
  */
 @Entity
-public class Pacote {
+public class Pacote implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    private Integer id;
     
     @Column(name = "descricao", nullable = false, length = 120)
     private String descricao;
     
-    @Column(name = "valor", nullable = false, precision = 2)
+    @Column(name = "valor", nullable = false, columnDefinition = "decimal(12,2)")
     private double valor;
     
     @ManyToOne
-    @JoinColumn(name = "Modalidade", referencedColumnName = "id")
+    @JoinColumn(name = "modalidade_id", referencedColumnName = "id", nullable = false)
     private Modalidade modalidade;
     
     public Pacote() {
     }
+    
+    public Modalidade getModalidade() {
+        return modalidade;
+    }
 
-    public int getId() {
+    public void setModalidade(Modalidade modalidade) {
+        this.modalidade = modalidade;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

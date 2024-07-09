@@ -7,6 +7,10 @@ package br.edu.ifsul.cc.lpoo.academia_danca.model;
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.io.Serializable;
+
 
 /**
  *
@@ -14,9 +18,10 @@ import javax.persistence.Entity;
  */
 
 @Entity
-public class Alunos extends Pessoas{
+public class Alunos extends Pessoas implements Serializable{
     
     @Column(name = "data_inicio")
+    @Temporal(TemporalType.DATE)//dia, mes e ano
     private Calendar dataInicio;
     
     @Column(name = "data_pagamento_dia")

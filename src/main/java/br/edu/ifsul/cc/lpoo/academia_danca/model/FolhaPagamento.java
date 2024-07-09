@@ -5,20 +5,42 @@
 package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
 import java.util.Calendar;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
+
 
 /**
  *
  * @author Mili
  */
 @Entity
-public class FolhaPagamento {
+public class FolhaPagamento implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)//id sequencial
+    private Integer id;
+    
+    @Column(name = "data_pagamento")
     private Calendar dataPag;
+    
+    @Column(name = "valor_receber")
     private double valorReceber;
 
     public FolhaPagamento() {
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
 
     public Calendar getDataPag() {
         return dataPag;

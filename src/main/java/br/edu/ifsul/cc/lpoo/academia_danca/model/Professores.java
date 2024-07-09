@@ -4,9 +4,15 @@
  */
 package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -14,12 +20,20 @@ import javax.persistence.Entity;
  */
 
 @Entity
-public class Professores extends Pessoas{
+public class Professores extends Pessoas implements Serializable{
     
     @Column(name = "data_admissao")
+    @Temporal(TemporalType.DATE)//dia, mes e ano
     private Calendar dataAdmissao;
+    
+    @OneToMany
+    private List<FolhaPagamento> folhaPag = new ArrayList();
+    
+    @OneToMany
+    private List<Modalidade> modalidade = new ArrayList();
 
     public Professores() {
+        
     }
 
     public Calendar getDataAdmissao() {

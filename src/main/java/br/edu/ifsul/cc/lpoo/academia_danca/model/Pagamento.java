@@ -4,6 +4,7 @@
  */
 package br.edu.ifsul.cc.lpoo.academia_danca.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -20,36 +23,46 @@ import javax.persistence.ManyToOne;
 
 
 @Entity
-public class Pagamento {
+public class Pagamento implements Serializable{
     
    @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-   private int id;
+   private Integer id;
    
    @Column(name = "data_vencimento", nullable = false)
+   @Temporal(TemporalType.TIMESTAMP)
    private Calendar dataVenc;
    
-   @Column(name = "valor", precision = 10, scale = 2)
+   @Column(name = "valor", columnDefinition = "decimal(12,2)")
    private double valor;
    
-   @Column(name = "valor_pagamento", precision = 10, scale = 2)
+   @Column(name = "valor_pagamento", columnDefinition = "decimal(12,2)")
    private double valorPagamento;
    
    @Column(name = "data_pagamento")
+   @Temporal(TemporalType.TIMESTAMP)
    private Calendar dataPag;
    
    @ManyToOne
    @JoinColumn(name = "Contrato", referencedColumnName = "id", nullable = false)
    private Contrato contrato;
+   
+   public Contrato getContratos() {
+        return contrato;
+    }
+
+    public void setContratos(Contrato contrato) {
+        this.contrato = contrato;
+    }
 
     public Pagamento() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -85,15 +98,4 @@ public class Pagamento {
         this.dataPag = dataPag;
     }
 
-    private static class Contrato {
-
-        public Contrato() {
-        }
-    }
-   
-   
-   
-   
-    
-    
 }
