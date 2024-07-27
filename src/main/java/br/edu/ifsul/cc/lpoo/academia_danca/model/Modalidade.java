@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,6 +22,8 @@ import javax.persistence.Id;
  */
 
 @Entity
+@Table(name = "tb_modalidade")
+@NamedQueries({@NamedQuery(name="Modalidade.orderbyid", query="select m from Modalidade m order by m.id asc")})
 public class Modalidade implements Serializable{
     
     @Id

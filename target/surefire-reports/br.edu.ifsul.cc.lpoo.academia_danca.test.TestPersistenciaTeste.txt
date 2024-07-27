@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.393 s - in br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.024 s - in br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste

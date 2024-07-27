@@ -7,8 +7,11 @@ package br.edu.ifsul.cc.lpoo.academia_danca.dao;
 
 
 
+import br.edu.ifsul.cc.lpoo.academia_danca.model.Modalidade;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 
 
@@ -59,6 +62,20 @@ public class PersistenciaJPA implements InterfacePersistencia{
         entity.getTransaction().begin();// abrir a transacao.
         entity.remove(o); //realiza o delete
         entity.getTransaction().commit(); //comita a transacao (comando sql)                
+    }
+    
+    public List<Modalidade> getModalidades() {
+        return entity.createNamedQuery("Modalidade.orderbyid").getResultList();
+    }
+    
+    public Modalidade buscarPorDescricao(String descricao) {
+        try {
+            return entity.createQuery("SELECT m FROM Modalidade m WHERE m.descricao = :descricao", Modalidade.class)
+                    .setParameter("descricao", descricao)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null; // Se não encontrar nenhuma modalidade com a descrição fornecida
+        }
     }
     
 }

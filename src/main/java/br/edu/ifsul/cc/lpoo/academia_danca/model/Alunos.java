@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.io.Serializable;
+import javax.persistence.Table;
 
 
 /**
@@ -18,6 +19,7 @@ import java.io.Serializable;
  */
 
 @Entity
+@Table(name = "tb_alunos")
 public class Alunos extends Pessoas implements Serializable{
     
     @Column(name = "data_inicio")

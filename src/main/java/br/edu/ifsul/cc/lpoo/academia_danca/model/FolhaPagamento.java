@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import javax.persistence.Table;
 
 
 /**
@@ -18,6 +19,7 @@ import java.io.Serializable;
  * @author Mili
  */
 @Entity
+@Table(name = "tb_folha_pagamento")
 public class FolhaPagamento implements Serializable{
     
     @Id

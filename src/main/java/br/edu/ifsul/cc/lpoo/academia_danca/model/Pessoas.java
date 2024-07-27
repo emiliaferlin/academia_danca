@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 /**
  *
@@ -20,6 +21,7 @@ import javax.persistence.InheritanceType;
  */
 
 @Entity
+@Table(name = "tb_pessoas")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)//herança
 public abstract class Pessoas implements Serializable{
    

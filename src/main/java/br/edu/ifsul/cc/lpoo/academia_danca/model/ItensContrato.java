@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 
@@ -21,9 +22,10 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
+@Table(name = "tb_itens_contrato")
 public class ItensContrato implements Serializable{
     
-     //tem como chave estrangeira contrato e pacote, ver como fazer 
+    //tem como chave estrangeira contrato e pacote, ver como fazer 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)//id sequencial
     private Integer idContrato;
