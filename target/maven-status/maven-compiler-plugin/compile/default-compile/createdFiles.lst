@@ -5,7 +5,6 @@ br\edu\ifsul\cc\lpoo\academia_danca\dao\InterfacePersistencia.class
 br\edu\ifsul\cc\lpoo\academia_danca\model\FormaPagamento.class
 br\edu\ifsul\cc\lpoo\academia_danca\Academia_danca.class
 br\edu\ifsul\cc\lpoo\academia_danca\model\Pessoas_.class
-br\edu\ifsul\cc\lpoo\academia_danca\view\TelaModalidades$5.class
 br\edu\ifsul\cc\lpoo\academia_danca\model\FolhaPagamento.class
 br\edu\ifsul\cc\lpoo\academia_danca\model\Modalidade.class
 br\edu\ifsul\cc\lpoo\academia_danca\view\TelaModalidades$1.class
