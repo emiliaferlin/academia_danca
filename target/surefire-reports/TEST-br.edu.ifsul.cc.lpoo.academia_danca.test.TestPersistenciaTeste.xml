@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste" time="2.024" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste" time="2.761" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.17\bin"/>
-    <property name="sun.java.command" value="C:\Users\Mili\AppData\Local\Temp\surefire14842285897802614188\surefirebooter-20240727165145642_3.jar C:\Users\Mili\AppData\Local\Temp\surefire14842285897802614188 2024-07-27T16-51-45_408-jvmRun1 surefire-20240727165145642_1tmp surefire_0-20240727165145642_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Mili\AppData\Local\Temp\surefire12944998595650611969\surefirebooter-20240801221104618_3.jar C:\Users\Mili\AppData\Local\Temp\surefire12944998595650611969 2024-08-01T22-11-04_322-jvmRun1 surefire-20240801221104618_1tmp surefire_0-20240801221104618_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste"/>
     <property name="surefire.test.class.path" value="C:\Users\Mili\Desktop\academia_danca\target\test-classes;C:\Users\Mili\Desktop\academia_danca\target\classes;C:\Users\Mili\.m2\repository\org\hibernate\javax\persistence\hibernate-jpa-2.1-api\1.0.2.Final\hibernate-jpa-2.1-api-1.0.2.Final.jar;C:\Users\Mili\.m2\repository\org\hibernate\hibernate-core\5.3.3.Final\hibernate-core-5.3.3.Final.jar;C:\Users\Mili\.m2\repository\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;C:\Users\Mili\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\Mili\.m2\repository\org\javassist\javassist\3.23.1-GA\javassist-3.23.1-GA.jar;C:\Users\Mili\.m2\repository\net\bytebuddy\byte-buddy\1.8.13\byte-buddy-1.8.13.jar;C:\Users\Mili\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\Mili\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\Mili\.m2\repository\org\jboss\jandex\2.0.5.Final\jandex-2.0.5.Final.jar;C:\Users\Mili\.m2\repository\com\fasterxml\classmate\1.3.4\classmate-1.3.4.jar;C:\Users\Mili\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\Mili\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\Users\Mili\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.0.4.Final\hibernate-commons-annotations-5.0.4.Final.jar;C:\Users\Mili\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Mili\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Mili\.m2\repository\org\postgresql\postgresql\42.2.24\postgresql-42.2.24.jar;C:\Users\Mili\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar;C:\Users\Mili\.m2\repository\org\hibernate\hibernate-entitymanager\4.3.1.Final\hibernate-entitymanager-4.3.1.Final.jar;C:\Users\Mili\.m2\repository\org\jboss\logging\jboss-logging-annotations\1.2.0.Beta1\jboss-logging-annotations-1.2.0.Beta1.jar;C:\Users\Mili\.m2\repository\javax\xml\bind\jaxb-api\2.3.0\jaxb-api-2.3.0.jar;C:\Users\Mili\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.core\2.7.12\org.eclipse.persistence.core-2.7.12.jar;C:\Users\Mili\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.asm\9.4.0\org.eclipse.persistence.asm-9.4.0.jar;C:\Users\Mili\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.antlr\2.7.12\org.eclipse.persistence.antlr-2.7.12.jar;C:\Users\Mili\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa\2.7.12\org.eclipse.persistence.jpa-2.7.12.jar;C:\Users\Mili\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa.jpql\2.7.12\org.eclipse.persistence.jpa.jpql-2.7.12.jar;C:\Users\Mili\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.moxy\2.7.12\org.eclipse.persistence.moxy-2.7.12.jar;C:\Users\Mili\.m2\repository\org\eclipse\persistence\jakarta.persistence\2.2.3\jakarta.persistence-2.2.3.jar;C:\Users\Mili\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa.modelgen.processor\2.7.12\org.eclipse.persistence.jpa.modelgen.processor-2.7.12.jar;"/>
@@ -34,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Mili\AppData\Local\Temp\surefire14842285897802614188\surefirebooter-20240727165145642_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Mili\AppData\Local\Temp\surefire12944998595650611969\surefirebooter-20240801221104618_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.17+10-LTS-269"/>
@@ -62,89 +62,85 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testePagamento" classname="br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste" time="0.069">
-    <system-out><![CDATA[Hibernate: alter table tb_itens_contrato drop constraint FKiq0m0rwyhyq0jiwhyrcp86pjm
-Hibernate: alter table tb_itens_contrato drop constraint FKr8va2mmww6jm77q5axej6rooo
-Hibernate: alter table tb_pacote drop constraint FKlucaefav60gfmcild187phrwh
-Hibernate: alter table tb_pagamento drop constraint FKrm79iujq9e3r197f68ficf4xa
-Hibernate: alter table tb_professores_tb_folha_pagamento drop constraint FKnbbhrcx2qa6s5jhtec4nfnpx8
-Hibernate: alter table tb_professores_tb_folha_pagamento drop constraint FK7uf9qn1lwounmc1bf15j0s3yx
-Hibernate: alter table tb_professores_tb_modalidade drop constraint FK12v45od03s7ypmtpdihda3oc6
-Hibernate: alter table tb_professores_tb_modalidade drop constraint FKiuhaxqvcd0eb24l2buitpbujc
-Hibernate: drop table if exists tb_alunos cascade
-Hibernate: drop table if exists tb_contrato cascade
-Hibernate: drop table if exists tb_folha_pagamento cascade
-Hibernate: drop table if exists tb_itens_contrato cascade
-Hibernate: drop table if exists tb_modalidade cascade
-Hibernate: drop table if exists tb_pacote cascade
-Hibernate: drop table if exists tb_pagamento cascade
-Hibernate: drop table if exists tb_professores cascade
-Hibernate: drop table if exists tb_professores_tb_folha_pagamento cascade
-Hibernate: drop table if exists tb_professores_tb_modalidade cascade
-Hibernate: drop sequence if exists hibernate_sequence
-Hibernate: create sequence hibernate_sequence start 1 increment 1
-Hibernate: create table tb_alunos (id int4 not null, data_aniversario timestamp, email varchar(255), endereco varchar(255), telefone varchar(255), nome_pessoa varchar(255), data_inicio date, data_pagamento_dia int4, primary key (id))
-Hibernate: create table tb_contrato (id int4 not null, data_inicio timestamp not null, forma_pagamento varchar(255) not null, valor_desconto float8, primary key (id))
-Hibernate: create table tb_folha_pagamento (id int4 not null, data_pagamento timestamp, valor_receber float8, primary key (id))
-Hibernate: create table tb_itens_contrato (idContrato int4 not null, contratos_id int4, pacotes_id int4, primary key (idContrato))
-Hibernate: create table tb_modalidade (id int4 not null, descricao varchar(155) not null, primary key (id))
-Hibernate: create table tb_pacote (id int4 not null, descricao varchar(120) not null, valor decimal(12,2) not null, modalidade_id int4 not null, primary key (id))
-Hibernate: create table tb_pagamento (id int4 not null, data_pagamento timestamp, data_vencimento timestamp not null, valor decimal(12,2), valor_pagamento decimal(12,2), Contrato int4 not null, primary key (id))
-Hibernate: create table tb_professores (id int4 not null, data_aniversario timestamp, email varchar(255), endereco varchar(255), telefone varchar(255), nome_pessoa varchar(255), data_admissao date, primary key (id))
-Hibernate: create table tb_professores_tb_folha_pagamento (Professores_id int4 not null, folhaPag_id int4 not null)
-Hibernate: create table tb_professores_tb_modalidade (Professores_id int4 not null, modalidade_id int4 not null)
-Hibernate: alter table tb_professores_tb_folha_pagamento add constraint UK_aavlyegf2x50btkmem4ubg5qw unique (folhaPag_id)
-Hibernate: alter table tb_professores_tb_modalidade add constraint UK_anr0uv0hox4jkrc4trjbi066v unique (modalidade_id)
-Hibernate: alter table tb_itens_contrato add constraint FKiq0m0rwyhyq0jiwhyrcp86pjm foreign key (contratos_id) references tb_contrato
-Hibernate: alter table tb_itens_contrato add constraint FKr8va2mmww6jm77q5axej6rooo foreign key (pacotes_id) references tb_pacote
-Hibernate: alter table tb_pacote add constraint FKlucaefav60gfmcild187phrwh foreign key (modalidade_id) references tb_modalidade
-Hibernate: alter table tb_pagamento add constraint FKrm79iujq9e3r197f68ficf4xa foreign key (Contrato) references tb_contrato
-Hibernate: alter table tb_professores_tb_folha_pagamento add constraint FKnbbhrcx2qa6s5jhtec4nfnpx8 foreign key (folhaPag_id) references tb_folha_pagamento
-Hibernate: alter table tb_professores_tb_folha_pagamento add constraint FK7uf9qn1lwounmc1bf15j0s3yx foreign key (Professores_id) references tb_professores
-Hibernate: alter table tb_professores_tb_modalidade add constraint FK12v45od03s7ypmtpdihda3oc6 foreign key (modalidade_id) references tb_modalidade
-Hibernate: alter table tb_professores_tb_modalidade add constraint FKiuhaxqvcd0eb24l2buitpbujc foreign key (Professores_id) references tb_professores
+  <testcase name="testeModalidade" classname="br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste" time="0.041">
+    <system-out><![CDATA[Hibernate: select nextval ('hibernate_sequence')
+Hibernate: insert into tb_modalidade (descricao, id) values (?, ?)
 Hibernate: select nextval ('hibernate_sequence')
+Hibernate: insert into tb_modalidade (descricao, id) values (?, ?)
+Hibernate: select nextval ('hibernate_sequence')
+Hibernate: insert into tb_modalidade (descricao, id) values (?, ?)
+Hibernate: select nextval ('hibernate_sequence')
+Hibernate: insert into tb_pacote (descricao, modalidade_id, valor, id) values (?, ?, ?, ?)
+]]></system-out>
+    <system-err><![CDATA[ago 01, 2024 10:11:05 PM org.hibernate.ejb.HibernatePersistence logDeprecation
+WARN: HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+ago 01, 2024 10:11:05 PM org.hibernate.ejb.HibernatePersistence logDeprecation
+WARN: HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
+ago 01, 2024 10:11:05 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [
+	name: pu_academia_danca
+	...]
+ago 01, 2024 10:11:05 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.3.3.Final}
+ago 01, 2024 10:11:05 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000206: hibernate.properties not found
+ago 01, 2024 10:11:05 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+ago 01, 2024 10:11:05 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+ago 01, 2024 10:11:05 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/academiaDanca]
+ago 01, 2024 10:11:05 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=postgres}
+ago 01, 2024 10:11:05 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+ago 01, 2024 10:11:05 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+ago 01, 2024 10:11:06 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+ago 01, 2024 10:11:06 PM org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl useContextualLobCreation
+INFO: HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+ago 01, 2024 10:11:06 PM org.hibernate.type.BasicTypeRegistry register
+INFO: HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@30b9eadd
+ago 01, 2024 10:11:07 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f18e31] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+ago 01, 2024 10:11:07 PM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+]]></system-err>
+  </testcase>
+  <testcase name="testePagamento" classname="br.edu.ifsul.cc.lpoo.academia_danca.test.TestPersistenciaTeste" time="0.032">
+    <system-out><![CDATA[Hibernate: select nextval ('hibernate_sequence')
 Hibernate: insert into tb_contrato (data_inicio, forma_pagamento, valor_desconto, id) values (?, ?, ?, ?)
 Hibernate: select nextval ('hibernate_sequence')
 Hibernate: insert into tb_pagamento (Contrato, data_pagamento, data_vencimento, valor, valor_pagamento, id) values (?, ?, ?, ?, ?, ?)
 ]]></system-out>
-    <system-err><![CDATA[jul 27, 2024 4:51:46 PM org.hibernate.ejb.HibernatePersistence logDeprecation
+    <system-err><![CDATA[ago 01, 2024 10:11:07 PM org.hibernate.ejb.HibernatePersistence logDeprecation
 WARN: HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-jul 27, 2024 4:51:46 PM org.hibernate.ejb.HibernatePersistence logDeprecation
+ago 01, 2024 10:11:07 PM org.hibernate.ejb.HibernatePersistence logDeprecation
 WARN: HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead.
-jul 27, 2024 4:51:46 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+ago 01, 2024 10:11:07 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
 INFO: HHH000204: Processing PersistenceUnitInfo [
 	name: pu_academia_danca
 	...]
-jul 27, 2024 4:51:46 PM org.hibernate.Version logVersion
-INFO: HHH000412: Hibernate Core {5.3.3.Final}
-jul 27, 2024 4:51:46 PM org.hibernate.cfg.Environment <clinit>
-INFO: HHH000206: hibernate.properties not found
-jul 27, 2024 4:51:46 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
-INFO: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-jul 27, 2024 4:51:46 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+ago 01, 2024 10:11:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
 WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-jul 27, 2024 4:51:46 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+ago 01, 2024 10:11:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/academiaDanca]
-jul 27, 2024 4:51:46 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+ago 01, 2024 10:11:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH10001001: Connection properties: {password=****, user=postgres}
-jul 27, 2024 4:51:46 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+ago 01, 2024 10:11:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
 INFO: HHH10001003: Autocommit mode: false
-jul 27, 2024 4:51:46 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+ago 01, 2024 10:11:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
 INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
-jul 27, 2024 4:51:46 PM org.hibernate.dialect.Dialect <init>
+ago 01, 2024 10:11:07 PM org.hibernate.dialect.Dialect <init>
 INFO: HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-jul 27, 2024 4:51:47 PM org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl useContextualLobCreation
+ago 01, 2024 10:11:07 PM org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl useContextualLobCreation
 INFO: HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
-jul 27, 2024 4:51:47 PM org.hibernate.type.BasicTypeRegistry register
-INFO: HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@4dd94a58
-jul 27, 2024 4:51:47 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
-INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4ed15347] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-jul 27, 2024 4:51:47 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
-INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@649f25f3] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-jul 27, 2024 4:51:47 PM org.hibernate.tool.schema.internal.SchemaCreatorImpl applyImportSources
-INFO: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3290b1a6'
-jul 27, 2024 4:51:47 PM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+ago 01, 2024 10:11:07 PM org.hibernate.type.BasicTypeRegistry register
+INFO: HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@30b9eadd
+ago 01, 2024 10:11:07 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7c8874ef] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+ago 01, 2024 10:11:07 PM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
 INFO: HHH000397: Using ASTQueryTranslatorFactory
 ]]></system-err>
   </testcase>

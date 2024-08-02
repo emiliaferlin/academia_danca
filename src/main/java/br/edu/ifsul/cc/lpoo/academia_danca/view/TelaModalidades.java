@@ -7,9 +7,6 @@ package br.edu.ifsul.cc.lpoo.academia_danca.view;
 import br.edu.ifsul.cc.lpoo.academia_danca.dao.PersistenciaJPA;
 import br.edu.ifsul.cc.lpoo.academia_danca.model.Modalidade;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.persistence.NoResultException;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -22,7 +19,7 @@ public class TelaModalidades extends javax.swing.JFrame {
     /**
      * Creates new form TelaModalidades
      */
-    private PersistenciaJPA persistencia;
+    PersistenciaJPA persistencia;
     public TelaModalidades() {
         initComponents();
         persistencia = new PersistenciaJPA();
@@ -44,6 +41,7 @@ public class TelaModalidades extends javax.swing.JFrame {
         btnNovo = new javax.swing.JButton();
         btnRemover = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -72,27 +70,35 @@ public class TelaModalidades extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Listagem Modalidades");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addComponent(btnEditar)
                         .addGap(27, 27, 27)
-                        .addComponent(btnRemover)))
+                        .addComponent(btnRemover))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                .addContainerGap(7, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo)
@@ -105,112 +111,85 @@ public class TelaModalidades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-       lstModalidades.setModel(modalidades);
-        String descricao = JOptionPane.showInputDialog(null, "Digite a descrição da nova modalidade:", "Nova Modalidade", JOptionPane.PLAIN_MESSAGE);
-        if (descricao != null && !descricao.trim().isEmpty()) {
-            Modalidade novaModalidade = new Modalidade();
-            novaModalidade.setDescricao(descricao);
+        Modalidade m = new Modalidade();
+        m.setDescricao(JOptionPane.showInputDialog("Informe a descrição da modalidade:"));
 
-            try {
-                
-                persistencia.persist(novaModalidade);
-                JOptionPane.showMessageDialog(null, "Modalidade adicionada com sucesso!");
-                atualizarListaModalidades(); // Atualiza a lista após adicionar nova modalidade
-                
-            } catch (Exception ex) {
-                
-                JOptionPane.showMessageDialog(null, "Erro ao adicionar modalidade.", "Erro", JOptionPane.ERROR_MESSAGE);
-                
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Descrição não pode ser vazia.", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
+        persistencia = new PersistenciaJPA();
+        persistencia.conexaoAberta();
+        persistencia.persist(m);
+        persistencia.fecharConexao();
+        JOptionPane.showMessageDialog(null, "Modalidade adicionada com sucesso!");
+        atualizarListaModalidades();
         
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // Solicita ao usuário a descrição da modalidade a ser editada
-        String descricao = JOptionPane.showInputDialog(null, "Digite a descrição da modalidade que deseja editar:", "Editar Modalidade", JOptionPane.PLAIN_MESSAGE);
+        Modalidade modalidadeSelecionada
+                = lstModalidades.getSelectedValue();
+        if (modalidadeSelecionada != null) {
 
-        if (descricao != null && !descricao.trim().isEmpty()) {
             try {
-               
+                persistencia = new PersistenciaJPA();
+                persistencia.conexaoAberta();
 
-                // Procura a modalidade pelo campo descrição
-                Modalidade modalidadeParaEditar = buscaModalidade(descricao);
+                Modalidade modalidadePersistido
+                        = (Modalidade) persistencia.find(Modalidade.class,
+                                modalidadeSelecionada.getId());
+                modalidadePersistido.setDescricao(
+                        JOptionPane.showInputDialog(rootPane,
+                                "Informe a descrição da modalidade: ",
+                                modalidadeSelecionada.getDescricao()));
+                persistencia.persist(modalidadePersistido);
+                persistencia.fecharConexao();
+                atualizarListaModalidades();
 
-                // Verifica se a modalidade foi encontrada
-                if (modalidadeParaEditar != null) {
-                    // Solicita ao usuário a nova descrição
-                    String novaDescricao = JOptionPane.showInputDialog(null, "Digite a nova descrição para a modalidade:", modalidadeParaEditar.getDescricao());
-
-                    if (novaDescricao != null && !novaDescricao.trim().isEmpty()) {
-                        modalidadeParaEditar.setDescricao(novaDescricao);
-
-                        // Atualiza a modalidade no banco de dados
-                        persistencia.atualiza(modalidadeParaEditar);
-                        JOptionPane.showMessageDialog(null, "Modalidade editada com sucesso!");
-                        atualizarListaModalidades(); // Atualiza a lista após editar a modalidade
-                    } else {
-                        JOptionPane.showMessageDialog(null, "A nova descrição não pode ser vazia.", "Erro", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Modalidade não encontrada.", "Erro", JOptionPane.ERROR_MESSAGE);
-                }
-
-                
-            } catch (NoResultException e) {
-                
-                JOptionPane.showMessageDialog(null, "Modalidade não encontrada.", "Erro", JOptionPane.ERROR_MESSAGE);
-            } catch (Exception ex) {
-                
-                JOptionPane.showMessageDialog(null, "Erro ao editar modalidade.", "Erro", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                System.err.println("Erro ao editar modalidade: " + e.getMessage());
+            } finally {
+                persistencia.fecharConexao();
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Descrição não pode ser vazia.", "Erro", JOptionPane.ERROR_MESSAGE);
+
         }
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-         // Solicita ao usuário a descrição da modalidade a ser excluída
-        String descricao = JOptionPane.showInputDialog(null, "Digite a descrição da modalidade que deseja excluir:", "Excluir Modalidade", JOptionPane.PLAIN_MESSAGE);
+        Modalidade modalidadeSelecionada = lstModalidades.getSelectedValue();
+        if (modalidadeSelecionada != null) {
+            int confirmacaoDel = JOptionPane.showConfirmDialog(rootPane,
+                    "Tem certeza que deseja remover modalidade " + modalidadeSelecionada.getDescricao());
+            if (confirmacaoDel == JOptionPane.YES_OPTION) {
+                try {
+                    persistencia = new PersistenciaJPA();
+                    persistencia.conexaoAberta();
+                    persistencia.remover(modalidadeSelecionada);
+                    persistencia.fecharConexao();
+                    atualizarListaModalidades();
 
-        if (descricao != null && !descricao.trim().isEmpty()) {
-            try {
-               
-
-                // Procura a modalidade pelo campo descrição
-                Modalidade modalidadeParaExcluir = buscaModalidade(descricao);
-
-                // Verifica se a modalidade foi encontrada
-                if (modalidadeParaExcluir != null) {
-                    // Remove a modalidade do banco de dados
-                    persistencia.remover(modalidadeParaExcluir);
-                    JOptionPane.showMessageDialog(null, "Modalidade excluída com sucesso!");
-                    atualizarListaModalidades(); // Atualiza a lista após excluir a modalidade
-                } else {
-                    JOptionPane.showMessageDialog(null, "Modalidade não encontrada.", "Erro", JOptionPane.ERROR_MESSAGE);
+                } catch (Exception e) {
+                    System.err.println("Erro ao excluir modalidade: " + e.getMessage());
+                } finally {
+                    persistencia.fecharConexao();
                 }
-
-               
-            } catch (NoResultException e) {
-                JOptionPane.showMessageDialog(null, "Modalidade não encontrada.", "Erro", JOptionPane.ERROR_MESSAGE);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Erro ao excluir modalidade.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Descrição não pode ser vazia.", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane,
+                    "Nenhuma modalidade selecionada");
         }
     }//GEN-LAST:event_btnRemoverActionPerformed
 
-    private DefaultListModel<String> modalidades = new DefaultListModel<>();
+
     private void atualizarListaModalidades() {
-        modalidades.clear();
+        lstModalidades.clearSelection();
+        persistencia.conexaoAberta();
         List<Modalidade> modal = persistencia.getModalidades();
+        DefaultListModel<Modalidade> modalidades = new DefaultListModel<>();
         for (Modalidade m : modal) {
-            modalidades.addElement(m.getDescricao());
+            modalidades.addElement(m);
         }
+        
+        lstModalidades.setModel(modalidades);
+        persistencia.fecharConexao();
     }
     
     private Modalidade buscaModalidade(String descricao) {
@@ -266,7 +245,8 @@ public class TelaModalidades extends javax.swing.JFrame {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> lstModalidades;
+    private javax.swing.JList<Modalidade> lstModalidades;
     // End of variables declaration//GEN-END:variables
 }
