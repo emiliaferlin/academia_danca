@@ -4,7 +4,13 @@
  */
 package br.edu.ifsul.cc.lpoo.academia_danca.view;
 
+import br.edu.ifsul.cc.lpoo.academia_danca.dao.CadastroModalidadeListener;
+import br.edu.ifsul.cc.lpoo.academia_danca.dao.PersistenciaJPA;
+import br.edu.ifsul.cc.lpoo.academia_danca.model.Modalidade;
 import br.edu.ifsul.cc.lpoo.academia_danca.model.Professores;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,8 +21,53 @@ public class CadastroModalidade extends javax.swing.JFrame {
     /**
      * Creates new form CadastroModalidade
      */
+    PersistenciaJPA persistencia;
+    private Modalidade modalidade;
     public CadastroModalidade() {
         initComponents();
+        persistencia = new PersistenciaJPA();
+    }
+    
+    private CadastroModalidadeListener listener;
+
+    public void setListener(CadastroModalidadeListener listener) {
+        this.listener = listener;
+    }
+
+    private void fecharTelaCadastro() {
+        if (listener != null) {
+            listener.onModalidadeAtualizada();
+        }
+        dispose();
+    }
+    
+    // Método para definir a modalidade
+    public void setModalidade(Modalidade modalidade) {
+        this.modalidade = modalidade;
+        // Aqui você pode carregar os dados da modalidade nos campos da tela de cadastro
+        carregarDadosModalidade();
+    }
+
+    private void carregarDadosModalidade() {
+        if (modalidade != null) {
+            // Carregar os dados da modalidade nos campos da tela de cadastro
+            jTextArea1.setText(modalidade.getDescricao());
+            //jComboBox1.setSelectedItem(modalidade.getProfessores());
+          
+        }
+    }
+   
+
+    public void listarProfessores() {
+        jComboBox1.removeAll();
+        persistencia = new PersistenciaJPA();
+        persistencia.conexaoAberta();
+        List<Professores> list = persistencia.getProfessores();
+        for (Professores p : list) {
+            jComboBox1.addItem(p);
+        }
+
+        persistencia.fecharConexao();
     }
 
     /**
@@ -110,15 +161,33 @@ public class CadastroModalidade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        // Professores prof = (Professores) jComboBox1.getSelectedItem();
+        //modalidade.setProfessores(prof);
+        System.out.println(jTextArea1.getText());
+        System.out.println(modalidade.getDescricao());
+        try {
+            persistencia.conexaoAberta();
+            Modalidade a = (Modalidade) persistencia.find(Modalidade.class, modalidade.getId());
+            a.setDescricao(jTextArea1.getText());
+            persistencia.persist(a);
+        
+        } catch (Exception ex) {
+          Logger.getLogger(CadastroModalidade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        persistencia.fecharConexao();
+
+        fecharTelaCadastro();
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**

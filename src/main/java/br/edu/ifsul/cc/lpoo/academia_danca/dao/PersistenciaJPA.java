@@ -8,6 +8,7 @@ package br.edu.ifsul.cc.lpoo.academia_danca.dao;
 
 
 import br.edu.ifsul.cc.lpoo.academia_danca.model.Modalidade;
+import br.edu.ifsul.cc.lpoo.academia_danca.model.Professores;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -53,6 +54,7 @@ public class PersistenciaJPA implements InterfacePersistencia{
         return em.find(c, id);//encontra um determinado registro 
     }
 
+    @Override
     public void persist(Object o) {
         EntityManager em = getEntityManager();
         try {
@@ -75,6 +77,23 @@ public class PersistenciaJPA implements InterfacePersistencia{
             entity = factory.createEntityManager();
         }
         return entity;
+    }
+    
+    
+
+    public void update(Object o) throws Exception {
+        
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(o);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            throw e;
+        }
     }
 
     @Override
@@ -106,7 +125,8 @@ public class PersistenciaJPA implements InterfacePersistencia{
         }
     }
     
-        public List<Modalidade> getProfessores() {
+        
+    public List<Professores> getProfessores() {
         EntityManager em = getEntityManager();
         try {
             return em.createNamedQuery("Professores.orderbyid").getResultList();
@@ -115,26 +135,5 @@ public class PersistenciaJPA implements InterfacePersistencia{
             return null;
         }
     }
-    
-    public void atualiza(Object o) throws Exception {
-        
-        //No método remover, antes de chamar remove, usamos merge se o objeto não estiver gerenciado.
-        EntityManager em = getEntityManager();
-        try {
-            em.getTransaction().begin();
-            if (!em.contains(o)) {
-                o = em.merge(o); // Anexa o objeto ao contexto de persistência, se necessário
-            }
-            em.remove(o);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            throw e;
-        }
-       
-    }
-   
-    
+  
 }

@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -32,6 +34,20 @@ public class Modalidade implements Serializable{
     
     @Column(name = "descricao", nullable = false, length = 155) // false é obrigatorio
     private String descricao;
+    
+    //@ManyToOne
+    //@JoinColumn(name="modalidade_professores")
+   // private Professores professores;
+
+    //public Professores getProfessores() {
+    //    return professores;
+   // }
+
+   // public void setProfessores(Professores professores) {
+       // this.professores = professores;
+   // }
+    
+    
     
 
     public Modalidade() {

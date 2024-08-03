@@ -4,9 +4,12 @@
  */
 package br.edu.ifsul.cc.lpoo.academia_danca.view;
 
+import br.edu.ifsul.cc.lpoo.academia_danca.dao.CadastroModalidadeListener;
 import br.edu.ifsul.cc.lpoo.academia_danca.dao.PersistenciaJPA;
 import br.edu.ifsul.cc.lpoo.academia_danca.model.Modalidade;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -25,6 +28,8 @@ public class TelaModalidades extends javax.swing.JFrame {
         persistencia = new PersistenciaJPA();
         atualizarListaModalidades();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,32 +129,27 @@ public class TelaModalidades extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        Modalidade modalidadeSelecionada
-                = lstModalidades.getSelectedValue();
+        Modalidade modalidadeSelecionada = lstModalidades.getSelectedValue();
+        //persistencia.conexaoAberta();
         if (modalidadeSelecionada != null) {
+            // Edição da Modalidade em Tela de Cadastro
+            CadastroModalidade telaCadastro = new CadastroModalidade();
 
-            try {
-                persistencia = new PersistenciaJPA();
-                persistencia.conexaoAberta();
+            telaCadastro.setModalidade(modalidadeSelecionada);
+            telaCadastro.setListener(new CadastroModalidadeListener() {
+                @Override
+                public void onModalidadeAtualizada() {
+                    atualizarListaModalidades();
+                }
+            });
+            telaCadastro.setVisible(true);
 
-                Modalidade modalidadePersistido
-                        = (Modalidade) persistencia.find(Modalidade.class,
-                                modalidadeSelecionada.getId());
-                modalidadePersistido.setDescricao(
-                        JOptionPane.showInputDialog(rootPane,
-                                "Informe a descrição da modalidade: ",
-                                modalidadeSelecionada.getDescricao()));
-                persistencia.persist(modalidadePersistido);
-                persistencia.fecharConexao();
-                atualizarListaModalidades();
-
-            } catch (Exception e) {
-                System.err.println("Erro ao editar modalidade: " + e.getMessage());
-            } finally {
-                persistencia.fecharConexao();
-            }
-
+           
+        } else {
+            // Tratamento para caso nenhuma modalidade seja selecionada
         }
+        
+        atualizarListaModalidades();
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -191,17 +191,7 @@ public class TelaModalidades extends javax.swing.JFrame {
         lstModalidades.setModel(modalidades);
         persistencia.fecharConexao();
     }
-    
-    private Modalidade buscaModalidade(String descricao) {
-       List<Modalidade> modal = persistencia.getModalidades();
-        for (Modalidade modalidade : modal) {
-            if (modalidade.getDescricao().equalsIgnoreCase(descricao)) {
-                return modalidade;
-            }
-        }
-        return null;
-    }
-   
+     
 
     /**
      * @param args the command line arguments
