@@ -146,7 +146,7 @@ public class TelaModalidades extends javax.swing.JFrame {
 
            
         } else {
-            // Tratamento para caso nenhuma modalidade seja selecionada
+            JOptionPane.showMessageDialog(rootPane, "Selecione uma modalidade antes");
         }
         
         atualizarListaModalidades();

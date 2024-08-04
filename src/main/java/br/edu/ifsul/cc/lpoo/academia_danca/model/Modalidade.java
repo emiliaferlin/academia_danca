@@ -35,17 +35,17 @@ public class Modalidade implements Serializable{
     @Column(name = "descricao", nullable = false, length = 155) // false é obrigatorio
     private String descricao;
     
-    //@ManyToOne
-    //@JoinColumn(name="modalidade_professores")
-   // private Professores professores;
+    @ManyToOne
+    @JoinColumn(name="modalidade_professores")
+    private Professores professores;
 
-    //public Professores getProfessores() {
-    //    return professores;
-   // }
+    public Professores getProfessores() {
+        return professores;
+    }
 
-   // public void setProfessores(Professores professores) {
-       // this.professores = professores;
-   // }
+    public void setProfessores(Professores professores) {
+       this.professores = professores;
+    }
     
     
     

@@ -11,6 +11,7 @@ import br.edu.ifsul.cc.lpoo.academia_danca.model.Professores;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +27,7 @@ public class CadastroModalidade extends javax.swing.JFrame {
     public CadastroModalidade() {
         initComponents();
         persistencia = new PersistenciaJPA();
+        listarProfessores();
     }
     
     private CadastroModalidadeListener listener;
@@ -162,16 +164,16 @@ public class CadastroModalidade extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        // Professores prof = (Professores) jComboBox1.getSelectedItem();
-        //modalidade.setProfessores(prof);
-        System.out.println(jTextArea1.getText());
-        System.out.println(modalidade.getDescricao());
+       
+        
         try {
             persistencia.conexaoAberta();
             Modalidade a = (Modalidade) persistencia.find(Modalidade.class, modalidade.getId());
             a.setDescricao(jTextArea1.getText());
+            Professores prof = (Professores) jComboBox1.getSelectedItem();
+            modalidade.setProfessores(prof);
             persistencia.persist(a);
-        
+            JOptionPane.showMessageDialog(rootPane, "Modalidade editada!");
         } catch (Exception ex) {
           Logger.getLogger(CadastroModalidade.class.getName()).log(Level.SEVERE, null, ex);
         }
