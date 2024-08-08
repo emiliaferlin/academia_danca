@@ -26,6 +26,7 @@ br\edu\ifsul\cc\lpoo\academia_danca\model\Pagamento.class
 br\edu\ifsul\cc\lpoo\academia_danca\view\CadastroModalidade$3.class
 br\edu\ifsul\cc\lpoo\academia_danca\model\Contrato_.class
 br\edu\ifsul\cc\lpoo\academia_danca\view\CadastroModalidade.class
+br\edu\ifsul\cc\lpoo\academia_danca\view\TelaModalidades$6.class
 br\edu\ifsul\cc\lpoo\academia_danca\model\Pacote_.class
 br\edu\ifsul\cc\lpoo\academia_danca\view\TelaModalidades.class
 br\edu\ifsul\cc\lpoo\academia_danca\model\Pacote.class

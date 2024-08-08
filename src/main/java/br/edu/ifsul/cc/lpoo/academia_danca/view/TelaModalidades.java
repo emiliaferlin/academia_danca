@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -47,6 +48,8 @@ public class TelaModalidades extends javax.swing.JFrame {
         btnRemover = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         jButton1.setText("jButton1");
 
@@ -77,6 +80,17 @@ public class TelaModalidades extends javax.swing.JFrame {
 
         jLabel1.setText("Listagem Modalidades");
 
+        jLabel2.setText("Descrição:");
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,16 +108,24 @@ public class TelaModalidades extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo)
@@ -178,6 +200,41 @@ public class TelaModalidades extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRemoverActionPerformed
 
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        String textoBusca = jTextField1.getText().trim();
+        
+        
+        
+        lstModalidades.clearSelection();
+        persistencia.conexaoAberta();
+        List<Modalidade> modal = persistencia.getModalidades(textoBusca);
+        DefaultListModel<Modalidade> modalidades = new DefaultListModel<>();
+        for (Modalidade m : modal) {
+            modalidades.addElement(m);
+        }
+        
+        lstModalidades.setModel(modalidades);
+        persistencia.fecharConexao();
+        
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        String textoBusca = jTextField1.getText().trim();
+        
+        
+        
+        lstModalidades.clearSelection();
+        persistencia.conexaoAberta();
+        List<Modalidade> modal = persistencia.getModalidades(textoBusca);
+        DefaultListModel<Modalidade> modalidades = new DefaultListModel<>();
+        for (Modalidade m : modal) {
+            modalidades.addElement(m);
+        }
+        
+        lstModalidades.setModel(modalidades);
+        persistencia.fecharConexao();
+    }//GEN-LAST:event_jTextField1KeyReleased
+
 
     private void atualizarListaModalidades() {
         lstModalidades.clearSelection();
@@ -236,7 +293,9 @@ public class TelaModalidades extends javax.swing.JFrame {
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JList<Modalidade> lstModalidades;
     // End of variables declaration//GEN-END:variables
 }

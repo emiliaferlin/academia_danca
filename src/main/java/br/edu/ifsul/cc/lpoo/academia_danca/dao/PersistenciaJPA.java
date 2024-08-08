@@ -13,6 +13,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 
 
@@ -119,6 +120,18 @@ public class PersistenciaJPA implements InterfacePersistencia{
         EntityManager em = getEntityManager();
         try {
             return em.createNamedQuery("Modalidade.orderbyid").getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public List<Modalidade> getModalidades(String texto) {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Modalidade> query = em.createQuery("select m from Modalidade m where lower(m.descricao) LIKE :descricao", Modalidade.class);
+            query.setParameter("descricao", "%" + texto.toLowerCase() + "%");
+            return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
